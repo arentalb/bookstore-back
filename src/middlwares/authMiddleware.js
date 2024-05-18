@@ -5,6 +5,7 @@ import { sendFailure } from "../utils/resposeSender.js";
 
 const authenticate = expressAsyncHandler(async (req, res, next) => {
   let token = req.cookies.jwt;
+  console.log(req.body);
   console.log(token);
   if (token) {
     try {
