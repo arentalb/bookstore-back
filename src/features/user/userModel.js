@@ -20,6 +20,11 @@ const UserSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    who: {
+      type: String,
+      enum: ["student", "teacher", "guest", "employee"],
+      required: true,
+    },
   },
   { timestamps: true },
 );
