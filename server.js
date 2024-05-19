@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import {sendError, sendFailure} from "./src/utils/resposeSender.js";
 import cors from "cors";
 import path from "path";
+import reservationRoutes from "./src/features/reservation/reservationRoutes.js";
 // import path from "path";
 
 dotenv.config();
@@ -31,6 +32,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use("/api/user", usersRoute);
 server.use("/api/book", bookRoutes);
 server.use("/api/upload", uploadRoutes);
+server.use("/api/requests", reservationRoutes);
 
 const __dirname = path.resolve();
 server.use("/uploads", express.static(path.join(__dirname + "/uploads")));
