@@ -62,7 +62,6 @@ const registerUser = expressAsyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
     });
-    createToken(res, newUser._id);
     const userResponse = {
       _id: newUser._id,
       username: newUser.username,
