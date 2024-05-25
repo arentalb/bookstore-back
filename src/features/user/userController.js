@@ -45,7 +45,7 @@ const logoutUser = expressAsyncHandler(async (req, res) => {
 });
 
 const registerUser = expressAsyncHandler(async (req, res) => {
-  const { username, email, password, who } = req.body;
+  const { username, email, password, who, isAdmin } = req.body;
   if (!username || !email || !password || !who) {
     res.status(400).json({ message: "Please provide all inputs" });
   }
@@ -62,6 +62,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
       email,
       password: hashedPassword,
       who: who,
+      isAdmin: isAdmin,
     });
     const userResponse = {
       _id: newUser._id,
